@@ -9,8 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, ProductListComponent, ProductCardComponent, HomePageComponent, CartPageComponent],
+  declarations: [AppComponent, NavbarComponent, ProductListComponent, ProductCardComponent, HomePageComponent, CartPageComponent, NotfoundPageComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
