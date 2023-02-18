@@ -1,0 +1,18 @@
+<div class="product">
+  <img class="product__image" src="{{ product.url }}" />
+  <div class="details">
+    <h1 class="product__name">{{ product.name }}</h1>
+    <h2 class="product__price">{{ product.price }} $</h2>
+    <input
+      type="number"
+      value="1"
+      class="product__quantity"
+      name="productQty"
+      id="cars"
+      min="1"
+      max="10"
+    />
+
+    <button class="product__button">Add to cart</button>
+  </div>
+</div>
