@@ -10,9 +10,18 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, ProductListComponent, ProductCardComponent, HomePageComponent, CartPageComponent, NotfoundPageComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    ProductListComponent,
+    ProductCardComponent,
+    HomePageComponent,
+    CartPageComponent,
+    NotfoundPageComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
