@@ -1,3 +1,4 @@
+import { Product } from './../models/product.d';
 import { Injectable } from '@angular/core';
 import { CartItem, CartList } from '../models/cart';
 @Injectable({
@@ -33,5 +34,26 @@ export class CartService {
   getCart(): CartList {
     console.log('cart list', this.CartList);
     return this.CartList;
+  }
+
+  removeFromCart(product: Product) {
+    console.log('removeFromCart');
+    this.CartList = this.CartList.filter((item) => item.id != product.id);
+  }
+
+  getTotal() {
+    return this.CartList.reduce(
+      (accumulator, product) => accumulator + product.total,
+      0
+    );
+  }
+
+  updateProductAmount(product: Product, newAmount: number) {
+    if (newAmount > 0) {
+      const index = this.CartList.findIndex((item) => item.id === product.id);
+
+      this.CartList[index].amount = newAmount;
+      this.CartList[index].total = newAmount * this.CartList[index].price;
+    }
   }
 }

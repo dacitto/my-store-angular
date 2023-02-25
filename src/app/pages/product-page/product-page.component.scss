@@ -1,0 +1,50 @@
+.grid {
+  max-width: 1200px;
+  text-align: center;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.1rem;
+
+  //   .details {
+  //     padding: 0.4rem;
+  //     display: flex;
+  //     flex-direction: column;
+  //   }
+  img {
+    border-radius: 1rem;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    .name {
+      font-size: 1.5rem;
+      margin: 1rem;
+    }
+    .price {
+      font-size: 1.7rem;
+      color: green;
+    }
+
+    .button {
+      color: white;
+      background-color: #333;
+      border-radius: 1rem;
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      border: transparent;
+      cursor: pointer;
+    }
+    .quantity {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      max-width: 2rem;
+    }
+  }
+}

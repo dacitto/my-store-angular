@@ -1,0 +1,26 @@
+<div *ngIf="product; else elseBlock">
+  <div class="grid container">
+    <img class="image" src="{{ product.url }}" />
+    <div class="details">
+      <h1 class="name">{{ product.name }}</h1>
+      <p class="disc">{{ product.description }}</p>
+      <h2 class="price">{{ product.price }} $</h2>
+      <input
+        type="number"
+        value="{{ amount }}"
+        class="product__quantity"
+        name="productQty"
+        id="cars"
+        min="1"
+        max="10"
+        [(ngModel)]="amount"
+        (ngModelChange)="onInputChange(amount)"
+      />
+
+      <button class="button" (click)="updateState(product)">Add to cart</button>
+      <a routerLink="/">back to home</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseBlock> <app-notfound-page/></ng-template>

@@ -11,6 +11,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { FormsModule } from '@angular/forms';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     CartPageComponent,
     NotfoundPageComponent,
+    ProductPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

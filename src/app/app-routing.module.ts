@@ -1,3 +1,4 @@
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,6 +7,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'cart', component: CartPageComponent },
+  { path: 'products/:id', component: ProductPageComponent },
   { path: '**', pathMatch: 'full', component: NotfoundPageComponent },
 ];
 @NgModule({
