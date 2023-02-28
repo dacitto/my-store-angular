@@ -8,7 +8,9 @@
     formControlName="fullName"
     required
   />
-  <ng-container *ngIf="f.fullName.errors">
+  <ng-container
+    *ngIf="f.fullName.invalid && (f.fullName.dirty || f.fullName.touched)"
+  >
     <p *ngIf="f.fullName.errors.required" style="color: red">
       The feield is required
     </p>
@@ -25,7 +27,9 @@
     placeholder="minimum 6 characters"
     formControlName="address"
   />
-  <ng-container *ngIf="f.address.errors">
+  <ng-container
+    *ngIf="f.address.invalid && (f.address.dirty || f.address.touched)"
+  >
     <p *ngIf="f.address.errors.required" style="color: red">
       The feield is required
     </p>
@@ -35,21 +39,27 @@
   </ng-container>
   <label for="creditCardNumber">credit card number</label>
   <input
-    type="text"
+    type="number"
     id="creditCardNumber"
     name="creditCardNumber"
     placeholder="XXXX-XXXX-XXXX-XXXX"
-    pattern="^4[0-9]{12}(?:[0-9]{3})?$"
     required
     formControlName="creditCardNumber"
   />
   <ng-container *ngIf="f.creditCardNumber.errors">
-    <p *ngIf="f.creditCardNumber.errors.required" style="color: red">
-      The feield is required
-    </p>
-    <p *ngIf="f.creditCardNumber.errors.pattern" style="color: red">
-      please enter a valid card number
-    </p>
+    <div
+      *ngIf="
+        f.creditCardNumber.invalid &&
+        (f.creditCardNumber.dirty || f.creditCardNumber.touched)
+      "
+    >
+      <p *ngIf="f.creditCardNumber.errors.required" style="color: red">
+        The feield is required
+      </p>
+      <p *ngIf="f.creditCardNumber.errors.pattern" style="color: red">
+        please enter a valid card number
+      </p>
+    </div>
   </ng-container>
   <input type="submit" value="Submit" [disabled]="!form.valid" />
 </form>
