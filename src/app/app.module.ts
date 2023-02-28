@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -10,20 +9,28 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { CartFormComponent } from './components/cart-form/cart-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ProductListComponent,
     ProductCardComponent,
+    CartFormComponent,
     HomePageComponent,
     CartPageComponent,
     NotfoundPageComponent,
     ProductPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

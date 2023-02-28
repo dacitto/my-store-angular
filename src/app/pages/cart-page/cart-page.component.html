@@ -1,32 +1,34 @@
 <div class="container">
   <div *ngIf="products.length > 0; else elseBlock">
     <div class="grid">
-      <div *ngFor="let product of products">
-        <div class="product">
-          <img class="product__image" src="{{ product.url }}" />
-          <div class="details">
-            <h1 class="product__name">{{ product.name }}</h1>
-            <h2 class="product__price">$ {{ product.total }}</h2>
-            <input
-              type="number"
-              value="{{ product.amount }}"
-              class="product__quantity"
-              name="productQty"
-              id="cars"
-              min="1"
-              max="10"
-              [(ngModel)]="product.amount"
-              (ngModelChange)="updateAmount(product, product.amount)"
-            />
+      <div>
+        <div *ngFor="let product of products">
+          <div class="product">
+            <img class="product__image" src="{{ product.url }}" />
+            <div class="details">
+              <h1 class="product__name">{{ product.name }}</h1>
+              <h2 class="product__price">$ {{ product.total }}</h2>
+              <input
+                type="number"
+                value="{{ product.amount }}"
+                class="product__quantity"
+                name="productQty"
+                id="cars"
+                min="1"
+                max="10"
+                [(ngModel)]="product.amount"
+                (ngModelChange)="updateAmount(product, product.amount)"
+              />
 
-            <button class="product__button" (click)="removeProduct(product)">
-              Remove from Cart
-            </button>
+              <button class="product__button" (click)="removeProduct(product)">
+                Remove from Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <form></form>
+      <app-cart-form></app-cart-form>
     </div>
 
     <h1>Total : ${{ total }}</h1>

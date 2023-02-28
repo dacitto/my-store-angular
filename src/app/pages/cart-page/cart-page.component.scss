@@ -27,12 +27,14 @@
     }
 
     &__button {
-      color: white;
-      background-color: #a41010;
+      color: #a41010;
+      border: 1px solid #a41010;
+      max-width: fit-content;
+      background-color: transparent;
       border-radius: 1rem;
-      padding: 1rem 2rem;
+      padding: 0.5rem 1rem;
       text-transform: uppercase;
-      border: transparent;
+
       cursor: pointer;
     }
     &__quantity {

@@ -1,0 +1,16 @@
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  input {
+    padding: 0.7rem;
+    &[type="submit"] {
+      background-color: #1e83ff;
+      border: none;
+      color: aliceblue;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+}
