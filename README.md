@@ -43,6 +43,11 @@ npm install -g pnpm
 
 ```
 npm i
+```
+
+or
+
+```
 pnpm i // if you prefer pnpm
 ```
 
