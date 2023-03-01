@@ -1,13 +1,8 @@
-import { User } from './../../models/user.d';
-import { Component, EventEmitter } from '@angular/core';
-import { Output } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserinfoService } from 'src/app/services/userinfo.service';
+import { User } from './../../models/user.d';
 @Component({
   selector: 'app-cart-form',
   templateUrl: './cart-form.component.html',
@@ -18,24 +13,13 @@ export class CartFormComponent {
   fullName: string = '';
   address: string = '';
   @Output() checkout: EventEmitter<any> = new EventEmitter();
-  // constructor(private userInfoService: UserinfoService) {}
-
-  // myForm: FormGroup;
-
-  // constructor(private fb: FormBuilder) {
-  //   this.myForm = this.fb.group({
-  //     fullName: ['', Validators.required],
-  //     address: ['', Validators.required],
-  //     creditCardNumber: [
-  //       '',
-  //       [Validators.required, Validators.pattern('[0-9]{16}')],
-  //     ],
-  //   });
-  // }
 
   form: FormGroup;
 
-  constructor(private userInfoService: UserinfoService) {
+  constructor(
+    private userInfoService: UserinfoService,
+    private router: Router
+  ) {
     this.form = this.generateForm();
   }
 
@@ -60,23 +44,14 @@ export class CartFormComponent {
     return this.form.controls as any;
   }
 
-  // submitForm() {
-  //   console.log(this.form.value);
-  //   alert(`Form submitted!, the name is ${this.form.value.name}`);
-  // }
   submitForm(): void {
     const user: User = {
-      creditCardNumber: this.creditCardNumber,
-      fullName: this.fullName,
-      address: this.address,
+      creditCardNumber: this.form.value.creditCardNumber,
+      fullName: this.form.value.fullName,
+      address: this.form.value.address,
     };
-    this.userInfoService.setUserInfos(user);
 
-    console.log(this.userInfoService.getUserInfos());
-    alert(`Form submitted!, the name is ${this.form.value}`);
-    // this.checkout.emit(user);
-  }
-  onSubmit() {
-    console.log(this.form.value);
+    this.userInfoService.setUserInfos(user);
+    this.router.navigate(['/success']);
   }
 }

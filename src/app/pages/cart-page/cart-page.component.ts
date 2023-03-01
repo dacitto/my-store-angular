@@ -27,7 +27,7 @@ export class CartPageComponent {
 
   ngOnInit(): void {
     this.products = this.cartService.getCart();
-    // Access the global state array in the service
+
     console.log(this.products);
   }
 }

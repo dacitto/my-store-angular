@@ -12,6 +12,7 @@ import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { CartFormComponent } from './components/cart-form/cart-form.component';
+import { SuccessPageComponent } from './pages/success-page/success-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { CartFormComponent } from './components/cart-form/cart-form.component';
     CartPageComponent,
     NotfoundPageComponent,
     ProductPageComponent,
+    SuccessPageComponent,
   ],
   imports: [
     BrowserModule,

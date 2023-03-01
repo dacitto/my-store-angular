@@ -5,17 +5,7 @@ import { CartItem, CartList } from '../models/cart';
   providedIn: 'root',
 })
 export class CartService {
-  CartList: CartList = [
-    {
-      amount: 1,
-      description: 'test',
-      id: 123,
-      name: 'test product',
-      price: 234,
-      total: 234,
-      url: 'https://images.unsplash.com/photo-1509391618207-32f1fa13c1d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3JhbmdlJTIwZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-    },
-  ];
+  CartList: CartList = [];
   constructor() {
     console.log('constructor called and value of Cartlist is', this.CartList);
   }
@@ -56,6 +46,9 @@ export class CartService {
       (accumulator, product) => accumulator + product.total,
       0
     );
+  }
+  reset() {
+    this.CartList = [];
   }
 
   updateProductAmount(product: Product, newAmount: number) {

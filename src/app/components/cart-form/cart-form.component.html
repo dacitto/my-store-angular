@@ -61,5 +61,10 @@
       </p>
     </div>
   </ng-container>
-  <input type="submit" value="Submit" [disabled]="!form.valid" />
+  <input
+    type="submit"
+    value="Buy"
+    [disabled]="!form.valid"
+    [ngStyle]="{ 'background-color': !form.valid ? '#aeaeae' : '#1e83ff' }"
+  />
 </form>

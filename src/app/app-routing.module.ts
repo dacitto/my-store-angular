@@ -1,3 +1,4 @@
+import { SuccessPageComponent } from './pages/success-page/success-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'cart', component: CartPageComponent },
   { path: 'products/:id', component: ProductPageComponent },
+  { path: 'success', component: SuccessPageComponent },
   { path: '**', pathMatch: 'full', component: NotfoundPageComponent },
 ];
 @NgModule({
