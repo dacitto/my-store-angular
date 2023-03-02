@@ -22,7 +22,7 @@ export class ProductPageComponent {
   ) {}
 
   updateState(product: Product) {
-    if (confirm(`Are you sure you want to add ${product.name} to cart ?`)) {
+    if (confirm(`Are you sure you want to add ${product.name} to cart 🛒?`)) {
       const total = this.amount * product.price;
       const newPoduct: CartItem = { ...product, total, amount: this.amount };
       this.cartService.addToCart(newPoduct);

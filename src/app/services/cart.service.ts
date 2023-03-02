@@ -1,11 +1,14 @@
 import { Product } from './../models/product.d';
 import { Injectable } from '@angular/core';
 import { CartItem, CartList } from '../models/cart';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   CartList: CartList = [];
+  private totalItems = new BehaviorSubject<number>(0);
+  public totalItems$ = this.totalItems.asObservable();
   constructor() {
     console.log('constructor called and value of Cartlist is', this.CartList);
   }
@@ -14,6 +17,7 @@ export class CartService {
     const itemExist = this.CartList.some((item) => item.id === cartItem.id);
     if (!itemExist) {
       this.CartList.push(cartItem);
+      this.totalItems.next(this.CartList.length);
       return;
     }
     const index = this.CartList.findIndex((item) => item.id === cartItem.id);
@@ -37,8 +41,13 @@ export class CartService {
   }
 
   removeFromCart(product: Product) {
-    console.log('removeFromCart');
-    this.CartList = this.CartList.filter((item) => item.id != product.id);
+    const confirmAlert = confirm(
+      `❌ Are you sure you want to remove ${product.name} from cart 🛒?`
+    );
+    if (confirmAlert) {
+      this.CartList = this.CartList.filter((item) => item.id != product.id);
+      this.totalItems.next(this.CartList.length);
+    }
   }
 
   getTotal() {
@@ -49,6 +58,7 @@ export class CartService {
   }
   reset() {
     this.CartList = [];
+    this.totalItems.next(0);
   }
 
   updateProductAmount(product: Product, newAmount: number) {

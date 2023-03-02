@@ -5,7 +5,10 @@
         <a routerLink="/" class="link">Home</a>
       </li>
       <li>
-        <a routerLink="/cart" class="link">Cart</a>
+        <a routerLink="/cart" class="link cart"
+          >Cart
+          <span class="badge" *ngIf="totalItems">{{ totalItems }}</span>
+        </a>
       </li>
     </ul>
   </nav>
