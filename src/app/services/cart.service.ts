@@ -46,6 +46,7 @@ export class CartService {
     );
     if (confirmAlert) {
       this.CartList = this.CartList.filter((item) => item.id != product.id);
+      alert(`${product.name} has been removed from your cart.`);
       this.totalItems.next(this.CartList.length);
     }
   }
